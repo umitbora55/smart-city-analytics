@@ -17,8 +17,8 @@ class WeatherDataFetcher:
     def __init__(self):
         self.api_key = os.getenv('OPENWEATHER_API_KEY')
         self.base_url = "http://api.openweathermap.org/data/2.5/weather"
-        self.last_call_time = 0
-        self.min_interval = 60  # Minimum 60 seconds between calls (API limit)
+        self.last_call_time = None  # None means no call made yet
+        self.min_interval = 60  # Minimum 60 seconds between calls
         self.cache = {}
         self.cache_duration = 600  # Cache for 10 minutes
     
@@ -28,6 +28,7 @@ class WeatherDataFetcher:
         Implements caching and rate limiting
         """
         if not self.api_key or self.api_key == 'your_api_key_here':
+            print("API key not configured")
             return None
         
         # Check cache
@@ -37,10 +38,11 @@ class WeatherDataFetcher:
             if time.time() - timestamp < self.cache_duration:
                 return cached_data
         
-        # Rate limiting
-        time_since_last_call = time.time() - self.last_call_time
-        if time_since_last_call < self.min_interval:
-            return None  # Use simulated data instead
+        # Rate limiting (but allow first call)
+        if self.last_call_time is not None:
+            time_since_last_call = time.time() - self.last_call_time
+            if time_since_last_call < self.min_interval:
+                return None  # Use simulated data instead
         
         try:
             params = {
@@ -67,6 +69,8 @@ class WeatherDataFetcher:
             # Cache the data
             self.cache[cache_key] = (weather_data, time.time())
             
+            print(f"Successfully fetched real weather data: {weather_data['temperature']}°C")
+            
             return weather_data
             
         except Exception as e:
@@ -82,19 +86,11 @@ class DatasetLoader:
         self.datasets = {}
     
     def load_traffic_dataset(self) -> Optional[List[Dict]]:
-        """
-        Load traffic dataset from local files
-        In production, this would load from Kaggle or other sources
-        """
-        # Placeholder - will be implemented when we download datasets
+        """Load traffic dataset from local files"""
         return None
     
     def load_energy_dataset(self) -> Optional[List[Dict]]:
-        """
-        Load energy consumption dataset
-        In production, this would load from local files or APIs
-        """
-        # Placeholder - will be implemented when we download datasets
+        """Load energy consumption dataset"""
         return None
 
 

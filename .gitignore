@@ -47,3 +47,6 @@ derby.log
 *.key
 .env
 secrets/
+
+# Environment variables
+.env
