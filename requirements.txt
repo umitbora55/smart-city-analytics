@@ -1,0 +1,16 @@
+# Data Generation
+faker==20.1.0
+python-dotenv==1.0.0
+pyyaml==6.0.1
+requests==2.31.0
+
+# Future: Kafka
+# kafka-python==2.0.2
+
+# Future: Data Processing
+# apache-flink==1.18.0
+# pyspark==3.5.0
+
+# Future: API
+# fastapi==0.104.1
+# uvicorn==0.24.0

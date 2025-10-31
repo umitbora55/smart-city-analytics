@@ -115,7 +115,7 @@ cd smart-city-analytics
 
 ### Phase 1: Foundation (Weeks 1-2)
 - [x] Project structure setup
-- [ ] IoT data generator implementation
+- [x] IoT data generator implementation
 - [ ] Kafka cluster setup
 - [ ] Basic monitoring stack
 

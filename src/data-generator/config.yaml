@@ -1,0 +1,38 @@
+# IoT Data Generator Configuration
+
+general:
+  sensors_per_type: 100
+  data_generation_interval: 0.1  # seconds (10 events/second per sensor)
+  output_format: json
+  
+sensor_types:
+  traffic:
+    enabled: true
+    fields:
+      - vehicle_count
+      - average_speed
+      - congestion_level
+    
+  weather:
+    enabled: true
+    fields:
+      - temperature
+      - humidity
+      - pressure
+      - wind_speed
+    
+  energy:
+    enabled: true
+    fields:
+      - power_consumption
+      - voltage
+      - current
+
+# Sensor location boundaries (latitude, longitude)
+location:
+  city: "Smart City"
+  bounds:
+    lat_min: 40.0
+    lat_max: 41.0
+    lon_min: 28.0
+    lon_max: 29.0
