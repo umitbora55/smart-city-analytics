@@ -413,7 +413,7 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 **Umit Bora**
 - GitHub: [@umitbora55](https://github.com/umitbora55)
 - Email: umitbora94@gmail.com
-- LinkedIn: [Umit Bora](https://linkedin.com/in/umitbora)
+- LinkedIn: [Umit Bora Gunaydin](https://www.linkedin.com/in/%C3%BCmit-bora-g%C3%BCnayd%C4%B1n/)
 
 ## Project Status
 
